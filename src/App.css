@@ -1,8 +1,14 @@
+/*
+  Text Colors: #888?
+
+*/
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  border: 1px solid white;
 }
 
 .logo {
@@ -33,10 +39,20 @@
   }
 }
 
-.card {
-  padding: 2em;
+.row {
+  display: grid;
+  grid-template-columns: 400px 400px;
+  gap: 10px;
+  border: 1px solid white;
 }
 
-.read-the-docs {
-  color: #888;
+.column {
+  height: 500px;
+  border: 1px solid white;
 }
+
+.pokemon-img {
+  height: 412.5px;
+  width: 300px;
+}
+
