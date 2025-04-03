@@ -1,5 +1,6 @@
 /*
   Text Colors: #888?
+  Border Test:  border: 1px solid white;
 
 */
 
@@ -8,7 +9,6 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  border: 1px solid white;
 }
 
 .logo {
@@ -42,13 +42,12 @@
 .row {
   display: grid;
   grid-template-columns: 400px 400px;
-  gap: 10px;
-  border: 1px solid white;
+  gap: 100px;
+  
 }
 
 .column {
   height: 500px;
-  border: 1px solid white;
 }
 
 .pokemon-img {
@@ -56,3 +55,24 @@
   width: 300px;
 }
 
+.button {
+  width: 125px;
+  height: 50px;
+  padding: 1em;
+  margin: 1em;
+  color: #888;
+}
+
+.input {
+  width: 300px;
+  height: 10px;
+  padding: 1em;
+  font-size: large;
+  color: white;
+  border-radius: 8px;
+}
+
+.bottom {
+  margin: 1em;
+  padding: 1em;
+}
