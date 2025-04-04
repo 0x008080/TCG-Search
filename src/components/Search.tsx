@@ -1,5 +1,7 @@
-
 import { useState } from 'react'
+import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
+
+
 
 
 function Search () {
@@ -9,19 +11,8 @@ function Search () {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
     
-        /* try {
-          // Use the input value to fetch the card
-          const card:any = await tcgdex.fetch('cards', 'swsh3-136');
-          
-          if (!card) {
-            throw new Error('Card not found');
-          }
-    
-          console.log('Fetched card:', card);
-        } catch (err) {
-          console.error('Fetch error:', err);
-        } */
     };
 
     
