@@ -1,7 +1,4 @@
 import { useState } from 'react'
-import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
-
-
 
 
 function Search () {
@@ -9,11 +6,24 @@ function Search () {
     const [newInput, setNewInput] = useState<string>("Furret");
     //const [cardData, setCardData] = useState<any>(null);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        console.log('searching');
+        console.log(e);
 
-    
-    };
+    try {
+        const response = await fetch(`https://api.pokemontcg.io/v2/cards/xy1-4`, {
+            headers: {
+                'X-Api-Key': `${import.meta.env.REACT_APP_API_KEY}`,
+            },
+        });
+
+        console.log(response);
+        
+    } catch (err) {
+        console.log(err);
+    }
+}
 
     
     return (
