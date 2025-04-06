@@ -53,6 +53,14 @@
 .pokemon-img {
   height: 412.5px;
   width: 300px;
+  transition: transform 0.3s ease-in-out;
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.pokemon-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px rgba(2, 204, 255, 0.2);
 }
 
 .button {
