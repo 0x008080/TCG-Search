@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { PokeCard } from './Card';
-import data from '../data.json'
 
 let Card: PokeCard = {
     name: '',
@@ -17,31 +16,21 @@ function Search () {
         e.preventDefault();
         console.log('searching');
 
-    for(let dat of data) {
-        console.log(dat);
-    }
-    /*
+    
     try {
-        const response = await fetch(`https://api.pokemontcg.io/v2/cards`, {
+        const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=!name:${newInput}`, {
             headers: {
                 'X-Api-Key': `${import.meta.env.REACT_APP_API_KEY}`,
             },
         });
        
         const res: any = await response.json();
-       writeFileSync('data.json', res);
-       console.log('data updated');
-       
-        Card.name = res.data.name;
-       Card.id = res.data.id;
-       Card.imageURL = res.data.images.large;
-
-       console.log(Card); 
+        console.log(res);
        
         
     } catch (err) {
         console.log(err);
-    } */
+    } 
 }
 
     
