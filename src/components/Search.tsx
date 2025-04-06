@@ -21,9 +21,9 @@ function parseResponse(res: any) {
 
 function Search() {
 
-    const [newInput, setNewInput] = useState<string>('Furret');
-    const [imageUrl, setImageUrl] = useState<string>('src/assets/test.jpg');
-    const [cardData, setCardData] = useState<string>('');
+    const [newInput, setNewInput] = useState<string>('Giratina');
+    const [imageUrl, setImageUrl] = useState<string>('src/assets/giratina.png');
+    const [cardData, setCardData] = useState<string>('Lost Origin');
     const [Results, setResults] = useState<string>('Search');
     const [Counter, setCounter] = useState<string>('');
 
@@ -42,12 +42,13 @@ function Search() {
             if (response.status == 200) {
                 const res: any = await response.json();
 
-                setResults(res.data[0].name.toString())
                 parseResponse(res);
 
                 count = Math.floor(Math.random() * Cards.length);
                 setImageUrl(res.data[count].images.large);
                 setCounter(`${count + 1} / ${Cards.length}`);
+                setResults(res.data[count].name.toString());
+                setCardData(`${res.data[count].set.name}`);
             } else {
                 console.log(response.status);
                 setResults(`Check spelling and try again.`);
@@ -60,7 +61,7 @@ function Search() {
     }
 
     function updateNext() {
-        if (Cards.length == 0) {
+        if (Cards == undefined) {
             console.log('Card array empty');
             return;
         }
@@ -73,12 +74,14 @@ function Search() {
 
         setImageUrl(Cards[count].imageURL);
         setCounter(`${count + 1} / ${Cards.length}`);
-
+        setResults(Cards[count].name.toString());
+        setCardData(`${Cards[count].setName}`);
     }
 
     function updatePrevious() {
-        if (Cards.length == 0) {
+        if (Cards == undefined) {
             console.log('Card array empty');
+            return;
         }
 
         count -= 1;
@@ -89,6 +92,8 @@ function Search() {
 
         setImageUrl(Cards[count].imageURL);
         setCounter(`${count + 1} / ${Cards.length}`);
+        setResults(Cards[count].name.toString());
+        setCardData(`${Cards[count].setName}`);
     }
 
     function clearInput() {
@@ -104,21 +109,27 @@ function Search() {
                 </div>
                 <div className="column">
                     <h3 itemID="results">{Results}</h3>
+                    <a className='row'>{cardData}</a>
+                
+                    <form onSubmit={handleSubmit} className="bottom">
+                        <input
+                        value={newInput}
+                        className="input"
+                        onChange={e => setNewInput(e.target.value)}
+                        id="item"
+                        ></input>
+                        <button className="button" type="submit">Submit</button>
+                    </form>
+                    
+                    <button className="button" onClick={updateNext}>Next</button>
+                    <button className="button" onClick={updatePrevious}>Previous</button>
+                    <button className="button" onClick={clearInput}>Clear</button>
+                    
                 </div>
+                
             </div>
             <p itemID='counter'>{Counter}</p>
-            <form onSubmit={handleSubmit} className="bottom">
-                <input
-                    value={newInput}
-                    className="input"
-                    onChange={e => setNewInput(e.target.value)}
-                    id="item"
-                ></input>
-                <button className="button" type="submit">Submit</button>
-            </form>
-            <button className="button" onClick={updateNext}>Next</button>
-            <button className="button" onClick={updatePrevious}>Previous</button>
-            <button className="button" onClick={clearInput}>Clear</button>
+            
         </>
     )
 }
