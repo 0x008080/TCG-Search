@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { PokemonCard } from './Card';
-import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
+import { PokeCard } from './Card';
+import data from '../data.json'
 
-let Card: PokemonCard = {
+let Card: PokeCard = {
     name: '',
     id: '',
     imageURL: ''
@@ -17,25 +17,31 @@ function Search () {
         e.preventDefault();
         console.log('searching');
 
+    for(let dat of data) {
+        console.log(dat);
+    }
+    /*
     try {
-        const response = await fetch(`https://api.pokemontcg.io/v2/cards/xy1-4`, {
+        const response = await fetch(`https://api.pokemontcg.io/v2/cards`, {
             headers: {
                 'X-Api-Key': `${import.meta.env.REACT_APP_API_KEY}`,
             },
         });
-
-       const res: any = await response.json();
        
-       Card.name = res.data.name;
+        const res: any = await response.json();
+       writeFileSync('data.json', res);
+       console.log('data updated');
+       
+        Card.name = res.data.name;
        Card.id = res.data.id;
        Card.imageURL = res.data.images.large;
 
-       console.log(Card);
+       console.log(Card); 
        
         
     } catch (err) {
         console.log(err);
-    }
+    } */
 }
 
     

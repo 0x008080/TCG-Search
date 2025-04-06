@@ -1,8 +1,8 @@
-export interface PokemonCard {
+export interface PokeCard {
 
     name: string;
     id: string;
     imageURL: string;
 };
 
-export default PokemonCard;
+export default PokeCard;
