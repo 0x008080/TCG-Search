@@ -1,5 +1,12 @@
 import { useState } from 'react'
+import { PokemonCard } from './Card';
+import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
 
+let Card: PokemonCard = {
+    name: '',
+    id: '',
+    imageURL: ''
+}
 
 function Search () {
     
@@ -9,7 +16,6 @@ function Search () {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         console.log('searching');
-        console.log(e);
 
     try {
         const response = await fetch(`https://api.pokemontcg.io/v2/cards/xy1-4`, {
@@ -18,7 +24,14 @@ function Search () {
             },
         });
 
-        console.log(response);
+       const res: any = await response.json();
+       
+       Card.name = res.data.name;
+       Card.id = res.data.id;
+       Card.imageURL = res.data.images.large;
+
+       console.log(Card);
+       
         
     } catch (err) {
         console.log(err);
