@@ -19,7 +19,7 @@ const Gallery: React.FC<ImageGalleryProps> = ({ imageUrls }) => {
                             src={url}
                             alt={`Search result ${index}`}
                             className="gallery-image"
-                            loading="lazy" // Optional: lazy loading
+                            loading="lazy"
                         />
                     </div>
                 ))

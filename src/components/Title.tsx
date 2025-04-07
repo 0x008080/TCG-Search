@@ -1,11 +1,11 @@
-import slugImage from '../assets/slug2.jpg'
+import tcgLogo from '../assets/tcg-search-l.png'
 
 function Title() {
     return (
         <nav className="">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a className="flex items-center space-x-3 rtl:space-x-reverse">
-              <img src={slugImage} className="h-9"/>
+              <img src={tcgLogo} height="100" width="80"/>
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Pokémon TCG Search</span>
             </a>
             <div className="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
