@@ -3,7 +3,7 @@ function Title() {
         <nav className="">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-              <img src="assets/slug2.jpg" className="h-9"/>
+              <img src="src/assets/slug2.jpg" className="h-9"/>
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Pokémon TCG Search</span>
             </a>
             <div className="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
