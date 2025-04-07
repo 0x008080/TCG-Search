@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { PokeCard } from './Card';
-//import  defaultPNG  from 'src/assets/giratina.png'
+import  defaultPNG  from '/assets/giratina.png'
 
 let Cards: PokeCard[];
 let count: number = 0;
@@ -23,7 +23,7 @@ function parseResponse(res: any) {
 function Search() {
 
     const [newInput, setNewInput] = useState<string>('Giratina');
-    const [imageUrl, setImageUrl] = useState<string>('https://images.pokemontcg.io/swsh11/186_hires.png');
+    const [imageUrl, setImageUrl] = useState<string>(defaultPNG);
     const [cardData, setCardData] = useState<string>('Lost Origin');
     const [Results, setResults] = useState<string>('Search');
     const [Counter, setCounter] = useState<string>('');
